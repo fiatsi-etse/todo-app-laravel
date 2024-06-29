@@ -1,0 +1,233 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    color: #4d4d4d;
+}
+
+.title {
+    text-align: center;
+    font-size: 80px;
+    color: #b83f45;
+    font-weight: 200;
+    margin-top: 30;
+}
+.todoapp {
+    background: #fff;
+    margin: 10px 0 40px 0;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    width: 550px;
+}
+
+.header {
+    /* padding: 20px; */
+    border-bottom: 1px solid #ededed;
+}
+
+.header h1 {
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+    margin-bottom: 20px;
+}
+
+.new-todo {
+    width: 100%;
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    /* box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03); */
+    font-size: 24px;
+    font-family: inherit;
+    color: inherit;
+    margin: 0;
+    height: 70px;
+}
+
+.new-todo::placeholder {
+    font-style: italic;
+    color: rgb(160, 158, 158);
+}
+
+.toggle-all:focus+label, .toggle:focus+label, :focus {
+    box-shadow: 0 0 2px 2px #cf7d7d;
+    outline: 0;
+}
+
+.main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+}
+
+.toggle-all {
+    width: 1px;
+    height: 1px;
+    border: none; /* Empêche le toggle-all de bouger */
+    opacity: 0;
+    position: absolute;
+}
+
+.toggle-all + label {
+    width: 100%;
+    font-size: 0;
+    border-bottom: 1px solid #e6e6e6;
+    position: absolute;
+    top: -50px;
+    left: -12px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    transition: background-color 0.3s ease;
+    height: 70px;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-item:hover {
+    background-color: #f5f5f5;
+}
+
+.toggle {
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.toggle:checked {
+    background-color: #4d90fe;
+    border-color: #4d90fe;
+}
+
+.toggle:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo-text {
+    word-break: break-all;
+    padding: 15px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+    flex-grow: 1;
+}
+
+.delete-btn {
+    display: none;
+    background: none;
+    border: none;
+    /* color: #cc9a9a; */
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete-btn:hover {
+    color: #cf7d7d;
+}
+
+.todo-item:hover .delete-btn {
+    display: block;
+}
+
+.footer {
+    padding: 10px 15px;
+    height: 40px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+.footer .todo-count {
+    float: left;
+    text-align: left;
+}
+
+.footer .delete-all {
+    float: right;
+    text-align: right;
+}
+
+.completed {
+    color: rgb(162, 160, 160);
+    text-decoration: line-through;
+}
+
+.filters {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.filters li {
+    display: inline;
+}
+
+.filters li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.filters li a.selected,
+.filters li a:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+
+.info {
+    margin: 65px auto 0;
+    color: #bfbfbf;
+    font-size: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.info p {
+    line-height: 1;
+}
